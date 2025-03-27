@@ -52,7 +52,7 @@ app.post('/tasks', async (req, res) => {
       title,
       completed: false,
       createdAt: new Date().toISOString(),
-      limitedAt
+      limitedAt: limitedAt ? new Date(limitedAt).toISOString() : ""
     };
 
     await taskRef.set(task);
